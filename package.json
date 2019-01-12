@@ -45,9 +45,18 @@
   "author": "Volha",
   "license": "ISC",
   "jest": {
-    "modulePaths": ["/shared/vendor/modules"],
-    "moduleFileExtensions": ["js", "jsx"],
-    "moduleDirectories": ["node_modules", "bower_components", "shared"],
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
     "transform": {
       "^.+\\.jsx?$": "babel-jest",
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
@@ -59,6 +68,8 @@
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
-    "transformIgnorePatterns": ["<rootDir>/node_modules/"]
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
   }
 }
