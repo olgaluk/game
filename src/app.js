@@ -46,23 +46,23 @@ function getRandomTask() {
 
 function compareAnswers(responseValue, nameFunction, response) {
   let responseCompare = true;
-  if (nameFunction === 'createTaskSimpleMath') {
+  if (nameFunction === createTaskSimpleMath) {
     console.log(responseValue, evil(document.querySelector('.simple-task>h3').textContent));
     responseCompare = +responseValue === evil(document.querySelector('.simple-task>h3').textContent);
   }
-  if (nameFunction === 'createTaskEnglish') {
+  if (nameFunction === createTaskEnglish) {
     console.log(responseValue, response);
     responseCompare = response.some(currentValue => currentValue.toLowerCase() === responseValue.toLowerCase());
   }
-  if (nameFunction === 'createTaskAudition') {
+  if (nameFunction === createTaskAudition) {
     console.log(responseValue, response);
     responseCompare = `${responseValue}`.toLowerCase() === response;
   }
-  if (nameFunction === 'createTaskSuperfluousWord') {
+  if (nameFunction === createTaskSuperfluousWord) {
     console.log(responseValue, response);
     responseCompare = `${responseValue}`.toLowerCase() === response;
   }
-  if (nameFunction === 'createTaskLogic') {
+  if (nameFunction === createTaskLogic) {
     console.log(responseValue, response);
     responseCompare = `${responseValue}` === response;
   }
@@ -70,11 +70,9 @@ function compareAnswers(responseValue, nameFunction, response) {
 }
 
 async function moveToNextTask() {
-  console.log(2);
   const responseValue = document.getElementById('player_response').value;
   if (responseValue !== '') {
-    const nameFunction = callTask.name;
-    const responseCheck = compareAnswers(responseValue, nameFunction, responseRight);
+    const responseCheck = compareAnswers(responseValue, callTask, responseRight);
     if (responseCheck) {
       document.getElementById('task').innerHTML = '<p class="response-total">Верно!!!</p>';
     } else {
