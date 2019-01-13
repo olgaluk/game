@@ -45,26 +45,28 @@ function getRandomTask() {
 }
 
 function compareAnswers(responseValue, nameFunction, response) {
+  let responseCompare = false;
   if (nameFunction === 'createTaskSimpleMath') {
     console.log(responseValue, evil(document.querySelector('.simple-task>h3').textContent));
-    return (+responseValue === evil(document.querySelector('.simple-task>h3').textContent));
+    responseCompare = +responseValue === evil(document.querySelector('.simple-task>h3').textContent);
   }
   if (nameFunction === 'createTaskEnglish') {
     console.log(responseValue, response);
-    return response.some(currentValue => currentValue.toLowerCase() === responseValue.toLowerCase());
+    responseCompare = response.some(currentValue => currentValue.toLowerCase() === responseValue.toLowerCase());
   }
   if (nameFunction === 'createTaskAudition') {
     console.log(responseValue, response);
-    return `${responseValue}`.toLowerCase() === response;
+    responseCompare = `${responseValue}`.toLowerCase() === response;
   }
   if (nameFunction === 'createTaskSuperfluousWord') {
     console.log(responseValue, response);
-    return `${responseValue}`.toLowerCase() === response;
+    responseCompare = `${responseValue}`.toLowerCase() === response;
   }
   if (nameFunction === 'createTaskLogic') {
     console.log(responseValue, response);
-    return `${responseValue}` === response;
+    responseCompare = `${responseValue}` === response;
   }
+  return responseCompare;
 }
 
 async function moveToNextTask() {
