@@ -1,7 +1,5 @@
 const path = require('path');
 
-const distPath = path.resolve(__dirname, './src');
-
 const conf = {
   entry: './src/app.js',
 
@@ -53,7 +51,6 @@ const conf = {
     ],
   },
   devServer: {
-    contentBase: distPath,
     port: 9000,
     compress: true,
     open: true,

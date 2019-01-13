@@ -39,26 +39,26 @@ function getRandomTask() {
     createTaskEnglish,
     createTaskAudition,
     createTaskSuperfluousWord,
-    createTaskLogic
+    createTaskLogic,
   ];
   return taskArray[Math.floor(Math.random() * taskArray.length)];
 }
 
-function compareAnswers(responseValue, nameFunction, responseRight) {
+function compareAnswers(responseValue, nameFunction, response) {
   if (nameFunction === 'createTaskSimpleMath') {
     return (+responseValue === evil(document.querySelector('.simple-task>h3').textContent));
   }
   if (nameFunction === 'createTaskEnglish') {
-    return responseRight.some(currentValue => currentValue.toLowerCase() === responseValue.toLowerCase());
+    return response.some(currentValue => currentValue.toLowerCase() === responseValue.toLowerCase());
   }
   if (nameFunction === 'createTaskAudition') {
-    return `${responseValue}`.toLowerCase() === responseRight;
+    return `${responseValue}`.toLowerCase() === response;
   }
   if (nameFunction === 'createTaskSuperfluousWord') {
-    return `${responseValue}`.toLowerCase() === responseRight;
+    return `${responseValue}`.toLowerCase() === response;
   }
   if (nameFunction === 'createTaskLogic') {
-    return `${responseValue}` === responseRight;
+    return `${responseValue}` === response;
   }
 }
 
@@ -73,7 +73,6 @@ async function moveToNextTask() {
     }
     const playersLife = getHealthPoints(responseCheck);
     await pause(0);
-    console.log(numberSpell);
     createAnime(responseCheck, numberSpell);
     await pause(2000);
     document.getElementById('task').style.display = 'none';
