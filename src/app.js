@@ -47,23 +47,18 @@ function getRandomTask() {
 function compareAnswers(responseValue, nameFunction, response) {
   let responseCompare = true;
   if (nameFunction === createTaskSimpleMath) {
-    console.log(responseValue, evil(document.querySelector('.simple-task>h3').textContent));
     responseCompare = +responseValue === evil(document.querySelector('.simple-task>h3').textContent);
   }
   if (nameFunction === createTaskEnglish) {
-    console.log(responseValue, response);
     responseCompare = response.some(currentValue => currentValue.toLowerCase() === responseValue.toLowerCase());
   }
   if (nameFunction === createTaskAudition) {
-    console.log(responseValue, response);
     responseCompare = `${responseValue}`.toLowerCase() === response;
   }
   if (nameFunction === createTaskSuperfluousWord) {
-    console.log(responseValue, response);
     responseCompare = `${responseValue}`.toLowerCase() === response;
   }
   if (nameFunction === createTaskLogic) {
-    console.log(responseValue, response);
     responseCompare = `${responseValue}` === response;
   }
   return responseCompare;
