@@ -45,7 +45,7 @@ function getRandomTask() {
 }
 
 function compareAnswers(responseValue, nameFunction, response) {
-  let responseCompare = false;
+  let responseCompare = true;
   if (nameFunction === 'createTaskSimpleMath') {
     console.log(responseValue, evil(document.querySelector('.simple-task>h3').textContent));
     responseCompare = +responseValue === evil(document.querySelector('.simple-task>h3').textContent);
@@ -70,9 +70,11 @@ function compareAnswers(responseValue, nameFunction, response) {
 }
 
 async function moveToNextTask() {
+  console.log(2);
   const responseValue = document.getElementById('player_response').value;
   if (responseValue !== '') {
-    const responseCheck = compareAnswers(responseValue, callTask.name, responseRight);
+    const nameFunction = callTask.name;
+    const responseCheck = compareAnswers(responseValue, nameFunction, responseRight);
     if (responseCheck) {
       document.getElementById('task').innerHTML = '<p class="response-total">Верно!!!</p>';
     } else {
